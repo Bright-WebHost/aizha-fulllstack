@@ -1,5 +1,6 @@
 const mongoose =require('mongoose');
-const mongoUrl='mongodb://127.0.0.1:27017/aizha';
+require('dotenv').config();
+const mongoUrl=process.env.MONGO_URL;;
 
 
 const   connectMongoDb =async()=>{
