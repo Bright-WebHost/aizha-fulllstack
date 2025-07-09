@@ -76,7 +76,7 @@ const MajestineBook = () => {
     useEffect(() => {
         const fetchPriceData = async () => {
             try {
-                const response = await fetch('http://localhost:7000/api/priceView/6842bce0440f00f8d71ed025');
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/priceView/6842bce0440f00f8d71ed025`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch price data');
                 }
@@ -99,7 +99,7 @@ const MajestineBook = () => {
     // Fetch booked dates from backend
     const fetchBookedDates = useCallback(async () => {
         try {
-            const response = await fetch('http://localhost:7000/api/chekoutview');
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/chekoutview`);
             if (!response.ok) {
                 throw new Error('Failed to fetch booked dates');
             }
@@ -297,7 +297,7 @@ const MajestineBook = () => {
         const roomname = "Majestine 618";
       
         try {
-            const response = await fetch('http://localhost:7000/api/checkout', {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/checkout`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

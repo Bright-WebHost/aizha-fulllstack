@@ -76,7 +76,7 @@ const Chic1Book = () => {
     useEffect(() => {
         const fetchPriceData = async () => {
             try {
-                const response = await fetch('http://localhost:7000/api/priceView/6853d4b14f532831999a179c');
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/priceView/6853d4b14f532831999a179c`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch price data');
                 }
@@ -99,7 +99,7 @@ const Chic1Book = () => {
     // Fetch booked dates from backend
     const fetchBookedDates = useCallback(async () => {
         try {
-            const response = await fetch('http://localhost:7000/api/chekoutview');
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/chekoutview`);
             if (!response.ok) {
                 throw new Error('Failed to fetch booked dates');
             }
@@ -297,7 +297,7 @@ const Chic1Book = () => {
         const roomname = "Chic 1 ";
       
         try {
-            const response = await fetch('http://localhost:7000/api/checkout', {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/checkout`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

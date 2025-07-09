@@ -76,7 +76,7 @@ const DemoBook = () => {
     useEffect(() => {
         const fetchPriceData = async () => {
             try {
-                const response = await fetch('http://localhost:7000/api/priceView/6842bcaf440f00f8d71ed023');
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/priceView/6842bcaf440f00f8d71ed023`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch price data');
                 }
@@ -99,7 +99,7 @@ const DemoBook = () => {
     // Fetch booked dates from backend
     const fetchBookedDates = useCallback(async () => {
         try {
-            const response = await fetch('http://localhost:7000/api/chekoutview');
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/chekoutview`);
             if (!response.ok) {
                 throw new Error('Failed to fetch booked dates');
             }
